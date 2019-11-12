@@ -1,6 +1,11 @@
 const express = require('express');
-
+const connectDB = require('./config/db');
 const app = express();
+
+//database connextion
+connectDB();
+//middleware
+app.use(express.json({ extended : false }))
 
 app.get('/', (req,res)=>{
     res.send('home')
