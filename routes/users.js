@@ -2,11 +2,11 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-
-const router = express.Router();
 const { check, validationResult } = require('express-validator');
 //Schema
 const User = require('../models/User');
+
+const router = express.Router();
 
 //@router       POST api/users
 //desc          Register a user
@@ -42,16 +42,16 @@ router.post('/',
                         }
                     }
                     jwt.sign(payload, 
-                            config.get('jwtSecret'), 
-                            { expiresIn : 7200}, 
-                            (err,token)=>{
-                                if (err) throw err;
-                                res.json({token})
-                            }
-                        )
+                        config.get('jwtSecret'), 
+                        { expiresIn : 7200}, 
+                        (err,token)=>{
+                            if (err) throw err;
+                            res.json({token})
+                        }
+                    )
                 } catch (err) {
                     console.error(err.message)
-                    res.send('error')
+                    res.status(500).send('Server error')
                 }
             });
 
