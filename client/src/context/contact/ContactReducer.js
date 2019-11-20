@@ -20,6 +20,11 @@ export default (state, action)=>{
                 ...state,
                 current:null
             }
+        case "CLEAR_FILTER":
+            return{
+                ...state,
+                filter:null
+            }
         case "UPDATE_CONTACT":
             return{
                 ...state,
@@ -29,7 +34,17 @@ export default (state, action)=>{
                             : contact
                     
                 })
-            }             
+            }
+        case "FILTER_CONTACT":
+            return{
+                ...state,
+                filter: state.contacts.filter(contact =>{
+                    const search = action.payload.toLowerCase();
+                    return contact.name.toLowerCase().match(search) ||
+                           contact.email.toLowerCase().match(search) ||
+                           contact.phone.match(search) 
+                })
+            }                 
         default:
             return state;    
     }

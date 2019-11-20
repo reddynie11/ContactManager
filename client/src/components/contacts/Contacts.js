@@ -7,7 +7,7 @@ import './contacts.css';
 
 const Contacts =(props)=>{
         const contactContext = useContext(ContactContext);
-    const { contacts } = contactContext;
+    const { contacts, filter } = contactContext;
     return(
         <div style={{
             display:'grid',
@@ -15,7 +15,11 @@ const Contacts =(props)=>{
             gridGap: '20px',
             margin: '20px'
         }}>
-            {contacts.map(contact => <ContactItem key={contact.id} contact={contact} history={props.history} />)}
+            {filter === null ?
+                contacts.map(contact => <ContactItem key={contact.id} contact={contact} history={props.history} />)
+                : filter.map(contact => <ContactItem key={contact.id} contact={contact} history={props.history} />)
+            }
+           
         </div>
     )
 }
