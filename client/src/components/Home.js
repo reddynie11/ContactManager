@@ -3,10 +3,10 @@ import Contacts from './contacts/Contacts';
 
 import './contacts/contacts.css'
 
-const Home = ()=>{
+const Home = (props)=>{
     return(
         <div className="main_contact_div">
-            <Contacts />
+            <Contacts history={props.history}/>
         </div>
     )
 }

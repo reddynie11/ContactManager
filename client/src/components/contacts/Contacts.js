@@ -5,8 +5,8 @@ import ContactItem from './ContactItem';
 
 import './contacts.css';
 
-const Contacts =()=>{
-    const contactContext = useContext(ContactContext);
+const Contacts =(props)=>{
+        const contactContext = useContext(ContactContext);
     const { contacts } = contactContext;
     return(
         <div style={{
@@ -15,7 +15,7 @@ const Contacts =()=>{
             gridGap: '20px',
             margin: '20px'
         }}>
-            {contacts.map(contact => <ContactItem contact={contact} />)}
+            {contacts.map(contact => <ContactItem key={contact.id} contact={contact} history={props.history} />)}
         </div>
     )
 }
