@@ -7,6 +7,7 @@ import Home from './components/Home';
 import AddContactForm from './components/contacts/AddContactForm'
 import Register from './components/Register';
 import Login from './components/Login';
+import Alerts from './components/Alerts';
 
 
 import ContactState from './context/contact/ContactState';
@@ -21,6 +22,7 @@ const App = ()=>{
           <BrowserRouter>
             <Fragment>
               <Header />
+              <Alerts />
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/add" component={AddContactForm}/>
