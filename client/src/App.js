@@ -7,10 +7,12 @@ import Home from './components/Home';
 import AddContactForm from './components/contacts/AddContactForm'
 
 import ContactState from './context/contact/ContactState';
+import AuthState from './context/auth/AuthState';
 
 const App = ()=>{
   return(
-   <ContactState>
+   <AuthState>
+      <ContactState>
       <BrowserRouter>
         <Fragment>
           <Header />
@@ -21,6 +23,7 @@ const App = ()=>{
         </Fragment>
       </BrowserRouter>
    </ContactState>
+   </AuthState>
     
   )
 }
