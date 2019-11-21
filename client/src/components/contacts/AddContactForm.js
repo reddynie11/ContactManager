@@ -48,6 +48,7 @@ const AddContactForm=(props)=>{
     }
     const clearAll=()=>{
         clearCurrent();
+        props.history.push("/");
     }
 
     return(
@@ -68,7 +69,7 @@ const AddContactForm=(props)=>{
                 <div>
                     <input type="submit" value={current ? "Update Contact" : "Add Contact"} className="btn btn-primary "  />
                     {current && (
-                        <input type="button" value="Clear" className="btn btn-dark ml-2"  onClick={clearAll}/>
+                        <input type="button" value="Cancel" className="btn btn-dark ml-2"  onClick={clearAll}/>
                     )}
                 </div>
             </form>

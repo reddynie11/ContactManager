@@ -10,6 +10,9 @@ const Header = ()=>{
             <i className="fas fa-id-card mr-2" ></i>
             {' Contact Manager'}
             </Navbar.Brand>
+            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
+
         </Navbar>
     )
 }
