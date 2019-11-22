@@ -3,7 +3,7 @@ import { Redirect} from 'react-router-dom'
 import ContactContext from '../../context/contact/ContactContext';
 
 const AddContactForm=(props)=>{
-    console.log(props)
+    
     const contactContext = useContext(ContactContext);
     const {addContact, current, clearCurrent, updateContact} = contactContext;
 

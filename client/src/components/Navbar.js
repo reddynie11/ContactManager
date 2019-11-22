@@ -2,13 +2,16 @@ import React,{Fragment, useContext, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import {Navbar, Nav} from 'react-bootstrap'
 import AuthContext from '../context/auth/AuthContext';
+import ContactContext from '../context/contact/ContactContext';
 
 
 
 const Header = ()=>{
     const authContext = useContext(AuthContext)
+    const contactContext = useContext(ContactContext);
 
     const {isAuth, logout, user} = authContext
+    const {clearContacts} = contactContext
 
     useEffect(()=>{
         authContext.loadUser();
@@ -16,7 +19,8 @@ const Header = ()=>{
     }, [])
 
     const onLogout=()=>{
-        logout()
+        logout();
+        clearContacts();
     }
     const authLinks = (
         <Fragment>
