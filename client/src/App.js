@@ -8,11 +8,16 @@ import AddContactForm from './components/contacts/AddContactForm'
 import Register from './components/Register';
 import Login from './components/Login';
 import Alerts from './components/Alerts';
+import setAuthToken from './utils/setAuthToken';
 
 
 import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
+
+if(localStorage.token){
+  setAuthToken(localStorage.token)
+}
 
 const App = ()=>{
   return(
