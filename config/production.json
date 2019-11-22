@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb://reddy_nie11:reddy.nie11@contactmanager-shard-00-00-pjf49.mongodb.net:27017,contactmanager-shard-00-01-pjf49.mongodb.net:27017,contactmanager-shard-00-02-pjf49.mongodb.net:27017/test?ssl=true&replicaSet=contactManager-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "jwtSecret": "secret"
+}
