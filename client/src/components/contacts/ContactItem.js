@@ -31,7 +31,7 @@ const ContactItem = (props)=>{
             </span>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
-                <Card.Text><i className="fas fa-phone-alt"></i> +1-{phone}</Card.Text>
+                <Card.Text><i className="fas fa-phone-alt"></i> +91-{phone}</Card.Text>
                 <Card.Text><i className="fas fa-envelope-open"></i> {email}</Card.Text>
                 <Button className="mr-1" size="sm" variant="dark" onClick={onEdit} >Edit</Button>        
                 <Button variant="danger" size="sm" onClick={onDelete} >Delete</Button>        

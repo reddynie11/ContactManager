@@ -23,8 +23,8 @@ const Header = ()=>{
         clearContacts();
     }
     const authLinks = (
-        <Fragment>
-            <Nav.Link href="/add">Add Contact</Nav.Link>
+        <Fragment style={{color: "#FFF"}}>
+            <Nav.Link href="/add"><i className="fas fa-user-plus"> <span>Add Contact</span></i> </Nav.Link>
             <Nav.Link href="#" onClick={onLogout} > <i className="fas fa-sign-out-alt "> <span>Logout</span> </i> </Nav.Link>
         </Fragment>
     )
