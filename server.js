@@ -7,9 +7,6 @@ connectDB();
 //middleware
 app.use(express.json({ extended : false }))
 
-app.get('/', (req,res)=>{
-    res.send('home')
-})
 
 //routes
 app.use('/api/users', require('./routes/users'));
