@@ -8,6 +8,7 @@ import AddContactForm from './components/contacts/AddContactForm'
 import Register from './components/Register';
 import Login from './components/Login';
 import Alerts from './components/Alerts';
+import PrivateRoute from './components/routing/privateRoute';
 import setAuthToken from './utils/setAuthToken';
 
 
@@ -29,8 +30,8 @@ const App = ()=>{
               <Header />
               <Alerts />
               <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/add" component={AddContactForm}/>
+                <PrivateRoute exact path="/" component={Home} />
+                <PrivateRoute path="/add" component={AddContactForm}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
               </Switch>   

@@ -1,49 +1,33 @@
 import React, {useReducer} from 'react';
+import axios from 'axios';
 import uuid from 'uuid';
 import ContactContext from './ContactContext';
 import ContactReducer from './ContactReducer';
 
 const ContactState = (props)=>{
     const initialState={
-        contacts:[
-            {
-                id:1,
-                name: "James Smith",
-                email:"js@smith.com",
-                phone:"111-111-1111",
-                type:"personal"
-            },
-            {
-                id:2,
-                name: "Betty Smith",
-                email:"bs@smith.com",
-                phone:"222-222-2222",
-                type:"professional"
-            },
-            {
-                id:3,
-                name: "Dolly Smith",
-                email:"ds@smith.com",
-                phone:"333-333-3333",
-                type:"professional"
-            },
-            {
-                id:4,
-                name: "Jonny Smith",
-                email:"jsmith@smith.com",
-                phone:"444-444-4444",
-                type:"personal"
-            }
-        ],
+        contacts:[],
         current:null,
-        filter:null
+        filter:null,
+        error: null
     }
     const [state, dispatch] = useReducer(ContactReducer, initialState);
 
     //add contact
-    const addContact =(contact)=>{
-        contact.id = uuid.v4();
-        dispatch({ type: "ADD_CONTACT", payload: contact })
+    const addContact = async (contact)=>{
+        const config = {
+            headers:{
+                "Content-Type": "application/json"
+            }
+        }
+        try {
+            const res = await axios.post('/api/contacts', contact, config)
+            dispatch({ type: "ADD_CONTACT", payload: res.data })
+        } catch (err) {
+            dispatch({type:"CONTACT_ERROR", payload: err.response.msg})
+        }
+
+        
     }
 
     //delete contact
@@ -84,6 +68,7 @@ const ContactState = (props)=>{
                 contacts: state.contacts,
                 current:state.current,
                 filter:state.filter,
+                error:state.error,
                 addContact,
                 deleteContact,
                 setCurrent,

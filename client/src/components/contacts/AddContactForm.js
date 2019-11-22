@@ -1,7 +1,9 @@
 import React, {useState, useContext, useEffect} from "react";
+import { Redirect} from 'react-router-dom'
 import ContactContext from '../../context/contact/ContactContext';
 
 const AddContactForm=(props)=>{
+    console.log(props)
     const contactContext = useContext(ContactContext);
     const {addContact, current, clearCurrent, updateContact} = contactContext;
 
@@ -29,6 +31,7 @@ const AddContactForm=(props)=>{
     const onChange = (e)=>{
         setContact({...contact, [e.target.name]:e.target.value})
     }
+    
     const onSubmit =(e)=>{
         e.preventDefault();
         if (current === null){
@@ -43,12 +46,12 @@ const AddContactForm=(props)=>{
             phone:'',
             type:'personal' 
         });
-        props.history.push("/");
+        props.history.push('/')
 
     }
     const clearAll=()=>{
         clearCurrent();
-        props.history.push("/");
+        props.history.push('/')
     }
 
     return(

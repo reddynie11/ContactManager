@@ -44,7 +44,12 @@ export default (state, action)=>{
                            contact.email.toLowerCase().match(search) ||
                            contact.phone.match(search) 
                 })
-            }                 
+            }
+        case "CONTACT_ERROR":
+             return{
+                 ...state,
+                 error: action.payload
+             }                
         default:
             return state;    
     }
